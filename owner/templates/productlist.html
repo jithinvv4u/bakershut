@@ -1,0 +1,39 @@
+<head><title>add product</title></head>
+{% extends 'shared/navbar.html' %}
+
+{% block display %}
+<br><br><br><br><br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-stripped">
+                    <tr>
+                        <th>image</th>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>cost</th>
+                        <th>stock</th>
+                        <th>mfg. date</th>
+                        <th colspan="2" class="text-center">Action</th>
+                    </tr>
+                    {% for i in product %}
+                    <tr class="table-primary">
+                        <td><img src="" alt="no image"></td>
+                        <td>{{ i.name }}</td>
+                        <td>{{ i.description }}</td>
+                        <td>{{ i.cost }}</td>
+                        <td>{{ i.stock }}</td>
+                        <td>{{ i.mfg }}</td>
+                        <td><a href="{% url 'owner_updateproduct' id=i.id %}" class="btn btn-danger">update</a></td>
+                        {% if i.status == True %}    
+                        <td><a href="{% url 'owner_productstatus' id=i.id %}" class="btn btn-danger" onclick="alert('product deactivated')">deactivate</a></td>
+                        {% else %}
+                        <td><a href="{% url 'owner_productstatus' id=i.id %}" class="btn btn-danger" onclick="alert('product activated')">activate</a></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>                        
+            </div>
+        </div>
+    </div>
+{% endblock display %}
+    

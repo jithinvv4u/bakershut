@@ -1,0 +1,21 @@
+<head><title>order product</title></head>
+{% extends 'shared/custnavbar.html' %}
+
+
+{% block display %}
+    <br><br><br><br><br>
+    {% for i in order %} 
+    <!-- {{user.id}}
+    {{i.userid.id}}   -->
+    {% if i.userid.id == user.id %}         
+    <img src="{{i.productid.image.url}}" alt="no image" height="100px">
+    <p style="display: inline-block;">{{i.productid.description}}</p>
+    <a class="btn btn-success" href="{% url 'shop_order' id=i.productid.id %}">order</a>
+    <a class="btn btn-danger" href="{% url 'shop_removecart' id=i.id %}">remove</a>
+    <br><br>
+    {% endif %}
+    {% endfor %}
+
+
+{% endblock display %}
+    

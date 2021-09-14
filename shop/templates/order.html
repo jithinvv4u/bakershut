@@ -1,0 +1,15 @@
+<head><title>order product</title></head>
+{% extends 'shared/shopnavbar.html' %}
+
+
+{% block display %}
+    <br><br><br><br><br>
+    <form method="post">
+        {% csrf_token %}
+    <img src="{{product.image.url}}" alt="no image" height="100px"><br><br>
+    <input type="text" name="qty" id="qty" placeholder="quantity">
+    <button type="submit" class="btn btn-success">order</button>
+    </form>
+
+{% endblock display %}
+    

@@ -1,0 +1,40 @@
+<head><title>shop orders</title></head>
+{% extends 'shared/staffnavbar.html' %}
+
+{% block display %}
+<br><br><br><br><br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-stripped">
+                    <tr>
+                        <th>name</th>
+                        <th>address</th>
+                        <th>phone no.</th>
+                        <th>email id</th>
+                        <th>product</th>
+                        <th>price</th>
+                        <th>action</th>
+                    </tr>
+                    {% for i in order %}
+                    {% if i.status == False and i.ordertype == 'shop' %}
+                    <tr class="table-primary">
+                        <td>{{ i.userid.first_name }}.{{ i.userid.last_name }}</td>
+                        <td>{{ i.userid.address }}</td>
+                        <td>{{ i.userid.phone }}</td>
+                        <td>{{ i.userid.email }}</td>
+                        <td>{{ i.productid.name }}</td> 
+                        <td>{{ i.cost }}</td> 
+                        <td><a href="{% url 'staff_delivershop' id=i.id %}" class="btn btn-danger">deliver</a></td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table> 
+
+            </div>
+            
+                
+        </div>
+    </div>
+    <br><br>
+{% endblock display %}
+    

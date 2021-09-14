@@ -1,0 +1,37 @@
+<head><title>shop list</title></head>
+{% extends 'shared/staffnavbar.html' %}
+
+{% block display %}
+<br><br><br><br><br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-stripped">
+                    <tr>
+                        <th>name</th>
+                        <th>address</th>
+                        <th>phone no.</th>
+                        <th>email id</th>
+                        <th>shopname</th>
+                        <th>location</th>
+                        <th>contact-person</th>
+                    </tr>
+                    {% for i in shop %}
+                    {% if i.login.is_active == True %}
+                    <tr class="table-primary">
+                        <td>{{ i.login.first_name }}.{{ i.login.last_name }}</td>
+                        <td>{{ i.login.address }}</td>
+                        <td>{{ i.login.phone }}</td>
+                        <td>{{ i.login.email }}</td>
+                        <td>{{ i.shopname }}</td> 
+                        <td>{{ i.location }}</td> 
+                        <td>{{ i.contact }}</td> 
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table> 
+            </div>
+        </div>
+    </div>
+    <br><br>
+{% endblock display %}
+    

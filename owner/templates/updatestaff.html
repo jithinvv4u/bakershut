@@ -1,0 +1,20 @@
+<head><title>add product</title></head>
+{% extends 'shared/navbar.html' %}
+
+{% block display %}
+<br><br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-1 bg-light rounded" style="overflow-y: scroll;height: 460px;">
+               <form method="post">
+                <strong>{{form.as_p}}</strong>
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-block" onclick="alert('staff updated')">SUBMIT</button>
+               </form>
+            </div>    
+
+        </div>
+    </div>
+    <br><br>
+{% endblock display %}
+    

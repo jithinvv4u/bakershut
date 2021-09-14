@@ -1,0 +1,23 @@
+<head><title>add product</title></head>
+{% extends 'shared/navbar.html' %}
+
+{% block display %}
+<br><br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-1 bg-light rounded" style="overflow-y: scroll;height: 460px;">
+                <h1>Add Product</h1><br>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                   <strong>{{ form.as_p }}</strong>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-block" onclick="alert('product added successfully')">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</div>
+<br><br>
+{% endblock display %}
+    

@@ -1,0 +1,18 @@
+<head><title>order product</title></head>
+{% extends 'shared/shopnavbar.html' %}
+
+{% load static %}
+{% block display %}
+    <br><br><br><br><br>
+    {% for p in product %}
+        <img src="{{p.image.url}}" alt="no image" height="100px">
+        <p style="display: inline;">{{p.description}}</p>
+        <a class="btn btn-secondary" href="{% url 'shop_cart' id=p.id %}">add to cart</a>
+        <a class="btn btn-success" href="{% url 'shop_order' id=p.id %}">order</a>
+        <br><br>
+    {% endfor %}
+        
+ </div>
+
+{% endblock display %}
+    

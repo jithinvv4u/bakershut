@@ -1,0 +1,42 @@
+<head><title>staff list</title></head>
+{% extends 'shared/navbar.html' %}
+
+{% block display %}
+<br><br><br><br><br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-stripped">
+                    <tr>
+                        <th>name</th>
+                        <th>address</th>
+                        <th>phone no.</th>
+                        <th>email id</th>
+                        <th>designation</th>
+                        <th>salary</th>
+                        <th>incentives</th>
+                        <th colspan="2" class="text-center">Action</th>
+                    </tr>
+                    {% for i in staff %}
+                    <tr class="table-primary">
+                        <td>{{ i.login.first_name }}.{{ i.login.last_name }}</td>
+                        <td>{{ i.login.address }}</td>
+                        <td>{{ i.login.phone }}</td>
+                        <td>{{ i.login.email }}</td>
+                        <td>{{ i.designation }}</td> 
+                        <td>{{ i.salary }}</td> 
+                        <td>{{ i.incentives }}</td> 
+                        <td><a href="{% url 'owner_updatestaff' id=i.id %}" class="btn btn-danger btn-block">update</a></td>
+                        {% if i.login.is_active == True %}
+                        <td><a href="{% url 'owner_staffstatus' id=i.login.id %}" class="btn btn-danger btn-block" onclick="alert('staff deactivated')">deactivate</a></td>
+                        {% else %}
+                        <td><a href="{% url 'owner_staffstatus' id=i.login.id %}" class="btn btn-danger" onclick="alert('user activated')">activate</a></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>  
+            </div>
+        </div>
+    </div>
+    <br><br>
+{% endblock display %}
+    
